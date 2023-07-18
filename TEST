@@ -1,0 +1,30 @@
+<!-- Galería de portafolio -->
+<div class="portfolio-gallery">
+  <div class="portfolio-item">
+    <img src="assets/img/portfolio/portfolio-1.jpg" alt="">
+    <div class="portfolio-overlay">
+      <div class="portfolio-content">
+        <h3>Título del Proyecto</h3>
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#portfolioModal">Más Detalles</button>
+      </div>
+    </div>
+  </div>
+  <!-- Agrega más elementos de la galería aquí -->
+</div>
+
+<!-- Ventana modal -->
+<div class="modal fade" id="portfolioModal" tabindex="-1" aria-labelledby="portfolioModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="portfolioModalLabel">Detalles del Proyecto</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Contenido del detalle del proyecto -->
+        
+        <!-- Puedes cargar aquí el contenido de "detalles-portafolio-test.html" mediante AJAX o incluirlo directamente -->
+      </div>
+    </div>
+  </div>
+</div>

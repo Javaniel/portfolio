@@ -721,7 +721,7 @@ section {
 
 .portfolio-details .portfolio-info {
   padding: 30px;
-  /* box-shadow: 0px 0 30px rgba(5, 13, 24, 0.08); */
+  box-shadow: 0px 0 30px rgba(5, 13, 24, 0.08);
 }
 
 .portfolio-details .portfolio-info h3 {
@@ -729,7 +729,7 @@ section {
   font-weight: 700;
   margin-bottom: 20px;
   padding-bottom: 20px;
-  /* border-bottom: 1px solid #eee; */
+  border-bottom: 1px solid #eee;
 }
 
 .portfolio-details .portfolio-info ul {
@@ -755,50 +755,6 @@ section {
 .portfolio-details .portfolio-description p {
   padding: 0;
 }
-
-
-.icon-large {
-  font-size: 36px;
-}
-
-.info-item {
-  text-align: center;
-}
-
-.swiper-button-next,
-.swiper-button-prev {
-  background-color: #149ddd56;
-  color: white;
-  width: 40px;
-  height: 40px;
-  border-radius: 12%;
-  font-size: 8px;
-  font-weight: 900;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0.8;
-  transition: opacity 0.3s ease;
-}
-
-.swiper-button-next::after,
-.swiper-button-prev::after {
-  font-size: 18px; /* Cambiar el tamaño de la flecha */
-  font-weight: 900;
-}
-
-.swiper-button-next.small,
-.swiper-button-prev.small {
-  width: 35px; /* Cambiar el ancho de la flecha */
-  height: 35px; /* Cambiar la altura de la flecha */
-}
-
-.swiper-button-next.small::after,
-.swiper-button-prev.small::after {
-  font-size: 14px; /* Cambiar el tamaño de la flecha en la versión pequeña */
-  font-weight: 900;
-}
-
 
 /*--------------------------------------------------------------
 # Services
