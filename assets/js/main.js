@@ -81,6 +81,19 @@
     onscroll(document, toggleBacktotop)
   }
 
+/**
+   * Whatsapp button
+   */
+const floatButton = document.querySelector('.float');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 100) {
+    floatButton.classList.add('visible');
+  } else {
+    floatButton.classList.remove('visible');
+  }
+});
+
   /**
    * Mobile nav toggle
    */
