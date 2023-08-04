@@ -734,6 +734,19 @@ section {
   bottom: 0;
 }
 
+.embed-responsive {
+  width: 800px;
+  height: 600px;
+  display: block;
+  margin: 0 auto;
+}
+
+.embed-responsive .embed-responsive-item {
+  width: 100%;
+  height: 100%;
+}
+
+
 /*--------------------------------------------------------------
 # Portfolio Details
 --------------------------------------------------------------*/
