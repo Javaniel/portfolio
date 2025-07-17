@@ -202,6 +202,10 @@ window.addEventListener('scroll', () => {
     selector: '.portfolio-lightbox'
   });
 
+  const lightbox = GLightbox({
+  selector: '.portfolio-lightbox'
+});
+
   /**
    * Portfolio details slider
    */
@@ -266,23 +270,95 @@ window.addEventListener('scroll', () => {
   new PureCounter();
 
 })()
-
 document.addEventListener('DOMContentLoaded', () => {
-  const portfolioSlider = new Swiper('.portfolio-details-slider', {
-    speed: 400,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev'
-    }
+  const mainImage = document.getElementById('mainImage');
+  const lightboxLink = mainImage.closest('a');
+  const thumbnails = document.querySelectorAll('.thumbnail');
+  const wrapper = document.querySelector('.thumbnails-wrapper');
+  const visibleCount = 4;
+  let activeIndex = 0;
+
+  // ====================
+  // Lightbox Initialization
+  // ====================
+
+  // Recolecta las imágenes del data-gallery
+  const galleryLinks = Array.from(document.querySelectorAll('[data-gallery="projectGallery"]'));
+
+  document.querySelectorAll('.thumbnail').forEach((thumb, index) => {
+  thumb.addEventListener('click', (e) => {
+    // 👇 Evita que el lightbox se dispare desde thumbnails
+    e.stopPropagation();
+    e.preventDefault();
+
+    showImage(index); // Tu función para cambiar la imagen principal
   });
 });
+
+
+  // Prepara lista única de imágenes sin repetir
+  const galleryItems = galleryLinks.map(link => ({
+    href: link.getAttribute('href'),
+    type: 'image'
+  }));
+
+  // Inicializa el GLightbox con la lista
+  const glightbox = GLightbox({
+    elements: galleryItems
+  });
+  
+  // ====================
+  // Mostrar imagen destacada
+  // ====================
+  function showImage(index) {
+    const thumb = thumbnails[index];
+    if (!thumb) return;
+
+    activeIndex = index;
+
+    const src = thumb.getAttribute('src');
+    mainImage.src = src;
+    lightboxLink.href = src;
+
+    // Quitar clase activa de todos y agregar al actual
+    thumbnails.forEach(t => t.classList.remove('active'));
+    thumb.classList.add('active');
+
+    // Scroll thumbnails (ajusta para horizontal en mobile)
+    if (window.innerWidth <= 768) {
+      // Centra el thumbnail activo en el scroll horizontal
+      thumb.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    } else {
+      // Vertical scroll para desktop
+      const start = Math.max(0, Math.min(activeIndex - 1, thumbnails.length - visibleCount));
+      const scrollOffset = start * (thumbnails[0].offsetHeight + 12);
+      if (wrapper) {
+        wrapper.style.transform = `translateY(-${scrollOffset}px)`;
+      }
+    }
+  }
+
+  // Click en thumbnails
+  thumbnails.forEach((thumb, index) => {
+    thumb.addEventListener('click', (e) => {
+      e.preventDefault(); // previene abrir lightbox
+      showImage(index);
+    });
+  });
+
+  // Botones navegación
+  document.querySelector('.prev-button').addEventListener('click', () => {
+    activeIndex = (activeIndex - 1 + thumbnails.length) % thumbnails.length;
+    showImage(activeIndex);
+  });
+
+  document.querySelector('.next-button').addEventListener('click', () => {
+    activeIndex = (activeIndex + 1) % thumbnails.length;
+    showImage(activeIndex);
+  });
+
+  // Inicializar con la primera imagen
+  showImage(0);
+});
+
+
