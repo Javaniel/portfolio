@@ -1524,11 +1524,9 @@ section {
   transition: background-color 0.3s ease;
   font-size: 15px;
 }
-
 .btn-contact i {
   margin-right: 8px;
 }
-
 .btn-contact:hover {
   background-color: #1c84b4;
 }
@@ -1547,11 +1545,9 @@ section {
   transition: background-color 0.3s ease;
   font-size: 15px;
 }
-
 .btn-proyecto i {
   margin-right: 8px;
 }
-
 .btn-proyecto:hover {
   background-color: #149ddd;
     color: #ffffff;
