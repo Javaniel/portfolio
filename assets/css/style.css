@@ -1532,6 +1532,33 @@ section {
 .btn-contact:hover {
   background-color: #1c84b4;
 }
+
+.btn-proyecto {
+  display: flex;
+  background-color: #ffffff;
+  color: #149ddd;
+  padding: 10px 20px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  border-color: #149ddd;
+  border-style: solid;
+  border-width: 1px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  font-size: 15px;
+}
+
+.btn-proyecto i {
+  margin-right: 8px;
+}
+
+.btn-proyecto:hover {
+  background-color: #149ddd;
+    color: #ffffff;
+}
+
+
 .project-info-box .btn-contact {
   display: flex;
   background-color: #149ddd;
